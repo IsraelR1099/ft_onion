@@ -1,0 +1,3 @@
+PasswordAuthentication yes
+PermitRootLogin no
+Port 4242

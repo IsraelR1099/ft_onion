@@ -4,7 +4,15 @@ FROM nginx:1.24.0
 RUN apt-get update && \
 	apt-get -y install \
 	tor torsocks ntpdate \
-	qrencode
+	qrencode \
+	openssh-server
+
+# Create a new user for ssh access
+RUN useradd -m sshuser && \
+	echo 'sshuser:password' | chpasswd && \
+	mkdir -p /home/sshuser/.ssh && \
+	chmod 700 /home/sshuser/.ssh
+
 
 # Tor configuration
 COPY torrc /etc/tor/torrc
@@ -12,10 +20,17 @@ COPY torrc /etc/tor/torrc
 # Nginx configuration
 COPY index.html /usr/share/nginx/html/index.html
 COPY styles.css /usr/share/nginx/html/styles.css
+COPY sshd_config /etc/ssh/sshd_config
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+
 EXPOSE 80
+EXPOSE 4242
+
+# Allow the user to connect via SSH
+RUN echo 'AllowUsers sshuser' >> /etc/ssh/sshd_config
 
 # Start services
 CMD service tor start && \
 	service nginx start && \
+	service ssh start && \
 	tail -f /dev/null
