@@ -13,21 +13,23 @@ RUN useradd -m sshuser && \
 	mkdir -p /home/sshuser/.ssh && \
 	chmod 700 /home/sshuser/.ssh
 
-
 # Tor configuration
 COPY torrc /etc/tor/torrc
 
 # Nginx configuration
 COPY index.html /usr/share/nginx/html/index.html
 COPY styles.css /usr/share/nginx/html/styles.css
-COPY sshd_config /etc/ssh/sshd_config
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
-EXPOSE 80
-EXPOSE 4242
+# Copy SSH keys
+COPY id_rsa.pub /home/sshuser/.ssh/authorized_keys
+COPY sshd_config /etc/ssh/sshd_config
 
 # Allow the user to connect via SSH
 RUN echo 'AllowUsers sshuser' >> /etc/ssh/sshd_config
+
+EXPOSE 80
+EXPOSE 4242
 
 # Start services
 CMD service tor start && \

@@ -1,3 +1,9 @@
-PasswordAuthentication yes
+Protocol 2
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
 PermitRootLogin no
+PermitEmptyPasswords no
+MaxAuthTries 3
+ClientAliveInterval 180
 Port 4242
