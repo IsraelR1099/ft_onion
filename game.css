@@ -9,6 +9,7 @@
 	margin: auto;
 	background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20230825/pngtree-landscape-with-mountains-forest-and-clouds-2d-game-background-image_13246432.jpg");
 	background-size: cover;
+	display: none;
 }
 
 #dino {
@@ -18,6 +19,7 @@
 	top: 225px;
 	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/58648a42-bc62-4d3b-9b5b-aed98349062b/demdjo1-e1f533d6-5d50-432e-89ab-278fb60707ce.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU4NjQ4YTQyLWJjNjItNGQzYi05YjViLWFlZDk4MzQ5MDYyYlwvZGVtZGpvMS1lMWY1MzNkNi01ZDUwLTQzMmUtODlhYi0yNzhmYjYwNzA3Y2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BtXt4L0ESq7LMbM2s8z6ETxgcXpV7YtITIlLhW_6Byc");
 	background-size: cover;
+	display: none;
 }
 
 #rock {
@@ -29,6 +31,14 @@
 	background-image: url("https://dinopixel.com/preload/0722/STONE-ROCK.png");
 	background-size: cover;
 	animation: rock 1.33s infinite;
+}
+
+#startButton {
+	display: block;
+	margin: 20px auto;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 @keyframes rock {

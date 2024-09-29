@@ -18,6 +18,9 @@ COPY torrc /etc/tor/torrc
 # Nginx configuration
 COPY index.html /usr/share/nginx/html/index.html
 COPY styles.css /usr/share/nginx/html/styles.css
+COPY game.js /usr/share/nginx/html/game.js
+COPY game.html /usr/share/nginx/html/game.html
+COPY game.css /usr/share/nginx/html/game.css
 COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
 # Copy SSH keys
